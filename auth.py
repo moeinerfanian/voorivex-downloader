@@ -20,7 +20,8 @@ def fetch_buildId():
 
 def get_access_token(username, password):
     headers_login = {"Content-Type": "application/json"}
-    data_login = {"username": username, "password": password}
+    otp = input("Please Enter OTP Code :")
+    data_login = {"username": username, "password": password , "otp": otp}
     response_login = requests.post(constants.LOGIN_API_URL, headers=headers_login, json=data_login)
 
     if response_login.status_code != 201:
